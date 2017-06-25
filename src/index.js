@@ -24,12 +24,20 @@ class App extends React.Component {
     })
   }
 
+  selectVideo(selectedVideo) {
+    console.log(selectedVideo)
+    this.setState({ selectedVideo })
+  }
+
   render() {
     return (
       <div>
         <SearchBar />
         <VideoDetail video={this.state.selectedVideo} />
-        <VideoList videos={this.state.videos}/>
+        <VideoList
+          videos={this.state.videos}
+          onVideoSelect={(selectedVideo) => this.selectVideo(selectedVideo)}
+        />
       </div>
     )
   }
