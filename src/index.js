@@ -11,14 +11,16 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      videos: []
+      videos: [],
+      selectedVideo: null
     }
 
     YTSearch({
       key: API_KEY,
       term: 'surf'
     }, (videos) => {
-      this.setState({ videos })
+      let selectedVideo = videos[0]
+      this.setState({ videos, selectedVideo })
     })
   }
 
@@ -26,7 +28,7 @@ class App extends React.Component {
     return (
       <div>
         <SearchBar />
-        <VideoDetail video={this.state.videos[0]} />
+        <VideoDetail video={this.state.selectedVideo} />
         <VideoList videos={this.state.videos}/>
       </div>
     )
