@@ -12,6 +12,7 @@ class VideoListItem extends React.Component {
   render() {
     const video = this.state.video
     const imageUrl = video.snippet.thumbnails.default.url
+    
     return (
       <li className="list-group-item">
         <div className="video-list media">
